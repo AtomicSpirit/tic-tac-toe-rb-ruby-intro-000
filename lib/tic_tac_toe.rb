@@ -62,6 +62,18 @@ def current_player(board)
   turn_count(board) % 2 == 0 ? "O" : "X"
 end
 
+def play(board)
+  until over?(board)
+    turn(board)
+  end
+  if won?(board)
+    winner(board) == "X" || winner(board)"O"
+    puts "Congratualtions #{winner(board)}"
+  elsif draw?(board)
+    puts "Cats Game!"
+  end
+end
+
 def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
